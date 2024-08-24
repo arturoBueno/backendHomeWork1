@@ -1,13 +1,13 @@
 import { DataTypes } from "sequelize";
 import { dbConnection } from "../config/db.js";
 
-const User = dbConnection.define("Users", {
-    username: {
+const Producto = dbConnection.define("Productos", {
+    productname: {
         type: DataTypes.STRING,
         allowNull: false,
         unique:true,
     },
-    password: {
+    codigo: {
         type: DataTypes.STRING,
         allowNull: false,
         unique:true,
@@ -15,6 +15,5 @@ const User = dbConnection.define("Users", {
 
 });
 
-//await User.sync();
-User.sync();
-export default User;
+Producto.sync();
+export default Producto;
