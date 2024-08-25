@@ -4,15 +4,16 @@ import cors from "cors";
 import bodyParser from "body-parser";
 import productsRouter from "./routes/products.routes.js";
 import { dbConnection } from "./config/db.js";
+import RateLimit from "./middlewares/rateLimit/rateLimits.middleware.js";
 
 const app=express();
 
 app.use(cors());
 app.use(bodyParser());
 
-// app.get("/",(req,res)=>{
-//     res.send("esto es bien");
-// });
+
+app.use(RateLimit);
+
 app.use("/products", productsRouter);
 
 try {
