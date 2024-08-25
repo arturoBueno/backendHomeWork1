@@ -10,8 +10,6 @@ const app=express();
 
 app.use(cors());
 app.use(bodyParser());
-
-
 app.use(RateLimit);
 
 app.use("/products", productsRouter);
