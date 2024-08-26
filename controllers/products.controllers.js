@@ -83,7 +83,7 @@ export const UpdateProductById = async (req, res) => {
         return res.status(401).json({ message: "Invalid credentials" });
     }
 
-    const token = jwt.sign({ productoId: producto.id }, "backend", {
+    const token = jwt.sign({ productId: producto.id }, "backend", {
         expiresIn: 60 * 60,
     });
 

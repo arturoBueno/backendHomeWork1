@@ -5,6 +5,7 @@ import bodyParser from "body-parser";
 import productsRouter from "./routes/products.routes.js";
 import { dbConnection } from "./config/db.js";
 import RateLimit from "./middlewares/rateLimit/rateLimits.middleware.js";
+import usersRouter from "./routes/users.routes.js";
 
 const app=express();
 
@@ -13,7 +14,7 @@ app.use(bodyParser());
 app.use(RateLimit);
 
 app.use("/products", productsRouter);
-
+app.use("/users", usersRouter);
 try {
     dbConnection.authenticate();
     console.log("Connected to DB");

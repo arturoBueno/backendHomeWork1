@@ -3,10 +3,11 @@ import Producto from "../models/products.js";
 
 const authorizateProduct = async (req, res, next) => {
     const token = req.headers.authorization.split("Bearer ")[1];
+    console.log(token)
 
     try {
-        const { productId: productId } = jwt.verify(token, "backend");
-
+        const { productId } = jwt.verify(token, "backend");
+        console.log(productId)
         const productExists = await Producto.findOne({
             where: {
                 id: +productId,
